@@ -1,0 +1,31 @@
+$ lscpu -ae
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ    MINMHZ
+  0    0      0    0 0:0:0:0          yes 3500.0000 1550.0000
+  1    0      0    1 1:1:1:0          yes 3500.0000 1550.0000
+  2    0      0    2 2:2:2:0          yes 3500.0000 1550.0000
+  3    0      0    3 3:3:3:0          yes 3500.0000 1550.0000
+  4    0      0    4 4:4:4:1          yes 3500.0000 1550.0000
+  5    0      0    5 5:5:5:1          yes 3500.0000 1550.0000
+  6    0      0    6 6:6:6:1          yes 3500.0000 1550.0000
+  7    0      0    7 7:7:7:1          yes 3500.0000 1550.0000
+  8    0      0    0 0:0:0:0          yes 3500.0000 1550.0000
+  9    0      0    1 1:1:1:0          yes 3500.0000 1550.0000
+ 10    0      0    2 2:2:2:0          yes 3500.0000 1550.0000
+ 11    0      0    3 3:3:3:0          yes 3500.0000 1550.0000
+ 12    0      0    4 4:4:4:1          yes 3500.0000 1550.0000
+ 13    0      0    5 5:5:5:1          yes 3500.0000 1550.0000
+ 14    0      0    6 6:6:6:1          yes 3500.0000 1550.0000
+ 15    0      0    7 7:7:7:1          yes 3500.0000 1550.0000
+
+$ cat /proc/cpuinfo | grep 'model name' | head -n1
+model name      : AMD Ryzen 7 1700 Eight-Core Processor
+
+# dmidecode -t 2 | grep "fact\|duct"
+        Manufacturer: ASUSTeK COMPUTER INC.
+        Product Name: PRIME X370-PRO
+        
+$ lspci -nnk | grep VGA
+0a:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070] [10de:1b81] (rev a1)
+        
+--- BIOS VERSION ---
+Beta BIOS 5406 AGESA 1004B

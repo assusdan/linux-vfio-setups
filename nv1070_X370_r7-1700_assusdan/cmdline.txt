@@ -1,0 +1,1 @@
+BOOT_IMAGE=/boot/vmlinuz-5.7-x86_64 root=... rw quiet udev.log_priority=3 amd_iommu=on iommu=pt

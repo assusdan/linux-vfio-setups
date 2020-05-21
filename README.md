@@ -18,6 +18,7 @@ VFIO Discussion and Support на Reddit - https://www.reddit.com/r/VFIO/wiki/ind
 5) открывается Pull Request в этот репозиторий
 
 Либо:
+
 5) вы собираете файлы в zip архив и присылаете их в Issue.
 
 ---
@@ -36,5 +37,8 @@ Configs submit guideline:
 3) Add software.txt file with your software description (check examples!)
 4) Add all other configs you think are required (or useful)
 5) Submit Pull Request to the repo
+
 OR
+
 5) Submit .zip file as Issue
+

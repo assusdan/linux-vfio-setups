@@ -7,6 +7,7 @@ Below you may find English version.
 Основные ресурсы:
 
 ArchWiki - https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF
+
 VFIO Discussion and Support на Reddit - https://www.reddit.com/r/VFIO/wiki/index
 
 Правила наполнения репозитория:
@@ -24,7 +25,9 @@ VFIO Discussion and Support на Reddit - https://www.reddit.com/r/VFIO/wiki/ind
 This repo contains examples of VM setups with GPU or any other PCIe devices passthrough.
 
 General resources:
+
 ArchWiki - https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF
+
 VFIO Discussion and Support on Reddit - https://www.reddit.com/r/VFIO/wiki/index
 
 Configs submit guideline:

@@ -1,0 +1,11 @@
+$ uname -a 
+Linux fish-desktop 5.6.11-gentoo-x86_64 #1 SMP PREEMPT Thu May 7 03:02:47 MSK 2020 x86_64 AMD Ryzen 7 3800X 8-Core Processor AuthenticAMD GNU/Linux
+
+$ qemu-system-x86_64 --version
+QEMU emulator version 4.2.0
+Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
+
+$ libvirtd --version
+libvirtd (libvirt) 6.2.0
+
+ovmf2 has unknowm version.. file date somewhere about 2018-01-23, and i know it from git master branch

@@ -1,0 +1,15 @@
+I passthrough Nvidia GTX1070 VGA on first primary PCI-E X16 slot. My secondary slot only has X4 lines. 
+I disable efifb on kernel commandline and use vesafb. My UEFI not support switch primary gpu in settings. If i use efifb - my VGA for VM doesn't initializating on guest system.
+In secondary slot AMD RX560 using by host Linux.
+For audio I use HDMI. 
+For mouse & kbd - second mouse & synergy
+
+MoBo: https://www.asus.com/Motherboards/TUF-GAMING-X570-PLUS-WI-FI/
+
+Dirty allocating hugepages - see "hooks" script
+hooks -> /etc/libvirt/hooks/hooks and set executable
+
+groups.sh - default printing iommu groups script from archwiki
+
+
+2020-05-21 by FisHlaBsoMAN https://t.me/vfiolinux

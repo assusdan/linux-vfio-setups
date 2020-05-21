@@ -1,8 +1,8 @@
 # linux-vfio-setups
 
-Below you may find English version.
+*Below you may find English version.*
 
-Данный репозиторий содержит примеры конфигураций виртуалок с проброшенными в них видеокартами и другим устройствами.
+### Данный репозиторий содержит примеры конфигураций виртуалок с проброшенными в них видеокартами и другим устройствами.
 
 Основные ресурсы:
 
@@ -20,9 +20,9 @@ VFIO Discussion and Support на Reddit - https://www.reddit.com/r/VFIO/wiki/ind
 Либо:
 5) вы собираете файлы в zip архив и присылаете их в Issue.
 
-===
+---
 
-This repo contains examples of VM setups with GPU or any other PCIe devices passthrough.
+### This repo contains examples of VM setups with GPU or any other PCIe devices passthrough.
 
 General resources:
 

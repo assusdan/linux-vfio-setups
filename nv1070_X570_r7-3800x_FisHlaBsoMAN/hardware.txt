@@ -1,0 +1,70 @@
+$ lscpu -ae
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ    MINMHZ
+  0    0      0    0 0:0:0:0          yes 3900,0000 2200,0000
+  1    0      0    1 1:1:1:0          yes 3900,0000 2200,0000
+  2    0      0    2 2:2:2:0          yes 3900,0000 2200,0000
+  3    0      0    3 3:3:3:0          yes 3900,0000 2200,0000
+  4    0      0    4 4:4:4:1          yes 3900,0000 2200,0000
+  5    0      0    5 5:5:5:1          yes 3900,0000 2200,0000
+  6    0      0    6 6:6:6:1          yes 3900,0000 2200,0000
+  7    0      0    7 7:7:7:1          yes 3900,0000 2200,0000
+  8    0      0    0 0:0:0:0          yes 3900,0000 2200,0000
+  9    0      0    1 1:1:1:0          yes 3900,0000 2200,0000
+ 10    0      0    2 2:2:2:0          yes 3900,0000 2200,0000
+ 11    0      0    3 3:3:3:0          yes 3900,0000 2200,0000
+ 12    0      0    4 4:4:4:1          yes 3900,0000 2200,0000
+ 13    0      0    5 5:5:5:1          yes 3900,0000 2200,0000
+ 14    0      0    6 6:6:6:1          yes 3900,0000 2200,0000
+ 15    0      0    7 7:7:7:1          yes 3900,0000 2200,0000
+
+
+$ cat /proc/cpuinfo | grep 'model name' | head -n1
+model name      : AMD Ryzen 7 3800X 8-Core Processor
+
+
+$ dmidecode|grep "Base Board Information" -A2
+Base Board Information
+        Manufacturer: ASUSTeK COMPUTER INC.
+        Product Name: TUF GAMING X570-PLUS (WI-FI)
+
+
+$ dmidecode|grep "BIOS Information" -A6
+BIOS Information
+        Vendor: American Megatrends Inc.
+        Version: 1407
+        Release Date: 04/01/2020
+        Address: 0xF0000
+        Runtime Size: 64 kB
+        ROM Size: 16 MB
+
+        
+$ lspci -nnk 
+0b:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070] [10de:1b81] (rev a1)
+        Kernel driver in use: vfio-pci
+0b:00.1 Audio device [0403]: NVIDIA Corporation GP104 High Definition Audio Controller [10de:10f0] (rev a1)
+        Kernel driver in use: vfio-pci
+06:00.0 Network controller [0280]: Intel Corporation Wireless-AC 9260 [8086:2526] (rev 29)
+        Subsystem: Intel Corporation Wireless-AC 9260 [8086:0014]
+        Kernel driver in use: vfio-pci
+03:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin [Radeon RX 460/560D / Pro 450/455/460/555/555X/560/560X] [1002:67ef] (rev e5)
+        Kernel driver in use: amdgpu
+03:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X] [1002:aae0]
+        Kernel driver in use: snd_hda_intel
+
+
+$ ./groups.sh|grep -E "03:|0b:|06:" -B1
+IOMMU Group 23:
+        03:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin [Radeon RX 460/560D / Pro 450/455/460/555/555X/560/560X] [1002:67ef] (rev e5)
+        03:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X] [1002:aae0]
+--
+IOMMU Group 25:
+        06:00.0 Network controller [0280]: Intel Corporation Wireless-AC 9260 [8086:2526] (rev 29)
+--
+IOMMU Group 27:
+        0b:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070] [10de:1b81] (rev a1)
+        0b:00.1 Audio device [0403]: NVIDIA Corporation GP104 High Definition Audio Controller [10de:10f0] (rev a1)
+
+
+$ dmesg | grep bandwidth|grep -E ":03|:0b"
+[    0.831673] pci 0000:03:00.0: 31.504 Gb/s available PCIe bandwidth, limited by 8 GT/s x4 link at 0000:02:02.0 (capable of 63.008 Gb/s with 8 GT/s x8 link)
+[    0.840609] pci 0000:0b:00.0: 32.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s x16 link at 0000:00:03.1 (capable of 126.016 Gb/s with 8 GT/s x16 link)

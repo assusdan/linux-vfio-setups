@@ -1,0 +1,2 @@
+$ cat /proc/cmdline 
+BOOT_IMAGE=/vmlinuz root=UUID=... ro vfio_iommu_type1.allow_unsafe_interrupts=1 amd_iommu=pt iommu=pt video=efifb:off vfio-pci.ids=10de:1b81,10de:10f0,8086:2526 pti=off mitigations=off random.trust_cpu=1  kvm-amd.npt=1 nordrand acpi_enforce_resources=lax 

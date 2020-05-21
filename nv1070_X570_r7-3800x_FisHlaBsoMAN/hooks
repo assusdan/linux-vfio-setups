@@ -1,0 +1,59 @@
+#!/bin/bash
+
+if [[ $1 == "my_vm" ]] && [[ $2 == "start" || $2 == "stopped" ]]
+then
+  if [[ $2 == "start" ]]
+  then
+  	echo `date` start $1 $2 >> /var/log/my_vm.log
+
+  	echo "running win10-2" >> /var/log/my_vm.log
+  	echo "setting hugepages" >> /var/log/my_vm.log
+
+  	#Memory to allocate for huge pages (Mb)
+	MEMORY=14242
+
+	#Size of pages (Mb)
+	HPGS_SIZE=2
+
+	PAGES=$(($MEMORY/$HPGS_SIZE))
+
+	echo "remove old hugepages" >> /var/log/my_vm.log
+	echo 0 > /proc/sys/vm/nr_hugepages
+	
+	echo "write new hugepages" >> /var/log/my_vm.log
+	echo $PAGES > /proc/sys/vm/nr_hugepages
+	sleep 1
+	TOTAL_PAGES=`grep HugePages_Total /proc/meminfo | grep -o ".\{${#PAGES}\}$"`
+    if [[ "$TOTAL_PAGES" == "$PAGES" ]] 
+    	then
+    		echo done >> /var/log/my_vm.log
+    	else
+    		echo wiping cache >> /var/log/my_vm.log
+    		echo -e "Can allocate only $TOTAL_PAGES pages instead of $PAGES. Need more RAM! Dropping cache!\n" >> /var/log/my_vm.log
+
+
+			echo "write new hugepages again" >> /var/log/my_vm.log
+			echo 3 > /proc/sys/vm/drop_caches
+			echo $PAGES > /proc/sys/vm/nr_hugepages
+
+			echo "plz check ram" >> /var/log/my_vm.log
+			free -h >> /var/log/my_vm.log
+    fi
+    echo "----" >> /var/log/my_vm.log
+   
+	#Write a warning if there's not enough pages and remove already allocated ones
+
+	
+    # unmount logic here
+  else
+    echo `date` else $1 $2 >> /var/log/my_vm.log
+  	echo "stopping win10-2" >> /var/log/my_vm.log
+    echo 0 > /proc/sys/vm/nr_hugepages
+    echo freeing hugepages done >> /var/log/my_vm.log
+    # some logic here
+    echo "----" >> /var/log/my_vm.log
+  fi
+else
+	echo `date` other $1 $2 >> /var/log/my_vm.log
+    echo "----" >> /var/log/my_vm.log
+fi

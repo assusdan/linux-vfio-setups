@@ -1,0 +1,12 @@
+▶ uname -a                                                                                
+Linux CatsHouse 5.6.13-arch1-1 #1 SMP PREEMPT Thu, 14 May 2020 06:52:53 +0000 x86_64 GNU/Linux
+
+▶ qemu-system-x86_64 --version
+QEMU emulator version 5.0.0
+Copyright (c) 2003-2020 Fabrice Bellard and the QEMU Project developers
+
+▶ libvirtd --version
+libvirtd (libvirt) 5.10.0
+
+▶ virt-manager --version
+2.2.1

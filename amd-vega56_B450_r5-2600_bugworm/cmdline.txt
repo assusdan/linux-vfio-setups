@@ -1,0 +1,1 @@
+root=LABEL=root rootflags=subvol=root rw quiet splash amd_iommu=on iommu=pt hugepages=8192 vfio-pci.ids=1002:687f,1002:aaf8

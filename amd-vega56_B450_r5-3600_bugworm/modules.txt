@@ -1,0 +1,19 @@
+==> /etc/modprobe.d/avic.conf <==
+options kvm-amd npt=1 nested=0 avic=1
+
+==> /etc/libvirt/qemu.conf <==
+user = "bugworm"
+group = "kvm"
+
+cgroup_device_acl = [
+    "/dev/null", "/dev/full", "/dev/zero",
+    "/dev/random", "/dev/urandom",
+    "/dev/ptmx", "/dev/kvm",
+    "/dev/rtc","/dev/hpet",
+    "/dev/input/by-id/usb-18f8_USB_OPTICAL_MOUSE-event-mouse",
+    "/dev/input/by-id/usb-Gaming_KB_Gaming_KB-event-kbd"
+]
+
+nvram = [
+	"/usr/share/ovmf/x64/OVMF_CODE.fd:/usr/share/ovmf/x64/OVMF_VARS.fd"
+]

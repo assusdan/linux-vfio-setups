@@ -1,0 +1,28 @@
+$ lscpu -ae
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE
+  0    0      0    0 0:0:0:0           да
+  1    0      0    1 1:1:1:0           да
+  2    0      0    2 2:2:2:0           да
+  3    0      0    3 3:3:3:1           да
+  4    0      0    4 4:4:4:1           да
+  5    0      0    5 5:5:5:1           да
+  6    0      0    0 0:0:0:0           да
+  7    0      0    1 1:1:1:0           да
+  8    0      0    2 2:2:2:0           да
+  9    0      0    3 3:3:3:1           да
+ 10    0      0    4 4:4:4:1           да
+ 11    0      0    5 5:5:5:1           да
+
+$ cat /proc/cpuinfo | grep '2600' | head -n1
+model name	: AMD Ryzen 5 2600 Six-Core Processor
+
+# dmidecode -t 2 | grep "fact\|duct"
+	Manufacturer: Micro-Star International Co., Ltd
+	Product Name: B450 TOMAHAWK MAX (MS-7C02)
+        
+$ lspci -nnk | grep VGA
+25:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Lexa PRO [Radeon 540/540X/550/550X / RX 540X/550/550X] [1002:699f] (rev c7)
+28:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 XL/XT [Radeon RX Vega 56/64] [1002:687f] (rev c3)
+
+--- BIOS VERSION ---
+BIOS 7C02v36 AGESA 1005

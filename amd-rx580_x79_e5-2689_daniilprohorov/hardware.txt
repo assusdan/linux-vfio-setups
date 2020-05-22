@@ -28,6 +28,12 @@ model name	: Intel(R) Xeon(R) CPU E5-2689 0 @ 2.60GHz
 03:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP108 [GeForce GT 1030] [10de:1d01] (rev a1)
 04:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] [1002:67df] (rev e7)
 
-        
---- BIOS VERSION ---
-UNKNOWN
+▶ sudo dmidecode|grep "BIOS Information" -A6      
+BIOS Information
+	Vendor: American Megatrends Inc.
+	Version: 4.6.5
+	Release Date: 10/29/2019
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 4096 kB
+Invalid entry length (16). Fixed up to 11.

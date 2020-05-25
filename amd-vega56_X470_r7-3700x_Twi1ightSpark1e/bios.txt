@@ -1,0 +1,8 @@
+# Following changes required to have proper IOMMU groups.
+
+Peripherals tab
+|
+`- AMD CBS
+  |
+  `- ACS Enable     = Enable
+  `- Enable AER Cap = Enable

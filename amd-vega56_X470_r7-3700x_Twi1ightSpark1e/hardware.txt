@@ -1,0 +1,32 @@
+$ lscpu -ae
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ    MINMHZ
+  0    0      0    0 0:0:0:0          yes 3600.0000 2200.0000
+  1    0      0    1 1:1:1:0          yes 3600.0000 2200.0000
+  2    0      0    2 2:2:2:0          yes 3600.0000 2200.0000
+  3    0      0    3 3:3:3:0          yes 3600.0000 2200.0000
+  4    0      0    4 4:4:4:1          yes 3600.0000 2200.0000
+  5    0      0    5 5:5:5:1          yes 3600.0000 2200.0000
+  6    0      0    6 6:6:6:1          yes 3600.0000 2200.0000
+  7    0      0    7 7:7:7:1          yes 3600.0000 2200.0000
+  8    0      0    0 0:0:0:0          yes 3600.0000 2200.0000
+  9    0      0    1 1:1:1:0          yes 3600.0000 2200.0000
+ 10    0      0    2 2:2:2:0          yes 3600.0000 2200.0000
+ 11    0      0    3 3:3:3:0          yes 3600.0000 2200.0000
+ 12    0      0    4 4:4:4:1          yes 3600.0000 2200.0000
+ 13    0      0    5 5:5:5:1          yes 3600.0000 2200.0000
+ 14    0      0    6 6:6:6:1          yes 3600.0000 2200.0000
+ 15    0      0    7 7:7:7:1          yes 3600.0000 2200.0000
+
+$ cat /proc/cpuinfo | grep 3700 | head -n1
+model name	: AMD Ryzen 7 3700X 8-Core Processor
+
+# dmidecode -t 2 | grep "fact\|duct"
+	Manufacturer: Gigabyte Technology Co., Ltd.
+	Product Name: X470 AORUS ULTRA GAMING-CF
+
+$ lspci -nnk | grep VGA
+0a:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Baffin [Radeon RX 550 640SP / RX 560/560X] [1002:67ff] (rev ff)
+0d:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Vega 10 XL/XT [Radeon RX Vega 56/64] [1002:687f] (rev c3)
+
+--- BIOS VERSION ---
+BIOS F50 AGESA 1.0.0.4 B

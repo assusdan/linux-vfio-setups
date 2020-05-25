@@ -1,0 +1,28 @@
+$ uname -a
+Linux TwiSpaPC 5.6.11-gentoo #1 SMP Mon May 11 21:59:07 MSK 2020 x86_64 AMD Ryzen 7 3700X 8-Core Processor AuthenticAMD GNU/Linux
+
+$ qemu-system-x86_64 --version
+QEMU emulator version 4.2.0
+Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
+
+$ libvirtd --version
+libvirtd (libvirt) 6.2.0
+
+$ virt-manager --version
+2.2.1
+
+$ grep -v "^#" /etc/libvirt/qemu.conf | grep -v "^\$"
+user = "twilight"
+group = "kvm"
+cgroup_device_acl = [
+    "/dev/null", "/dev/full", "/dev/zero",
+    "/dev/random", "/dev/urandom",
+    "/dev/ptmx", "/dev/kvm",
+    "/dev/rtc","/dev/hpet",
+    "/dev/input/by-id/usb-SEM_USB_Keyboard-event-kbd",
+    "/dev/input/by-id/usb-Wings_Tech_Gaming_Mouse-event-mouse"
+]
+nvram = [
+   "/usr/share/edk2-ovmf/OVMF_CODE.fd:/usr/share/edk2-ovmf/OVMF_VARS.fd"
+]
+

@@ -1,0 +1,1 @@
+root=PARTUUID=<uuid> rw vfio-pci.ids=1002:687f,1002:aaf8 vfio_iommu_type1.allow_unsafe_interrupts=1 kvm-amd.nested=0 kvm-amd.avic=1 kvm-amd.npt=1 resume=PARTUUID=<uuid>

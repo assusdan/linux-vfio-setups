@@ -1,0 +1,39 @@
+▶ lscpu -ae      
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ    MINMHZ
+  0    0      0    0 0:0:0:0           да 2600,0000 1200,0000
+  1    0      0    1 1:1:1:0           да 2600,0000 1200,0000
+  2    0      0    2 2:2:2:0           да 2600,0000 1200,0000
+  3    0      0    3 3:3:3:0           да 2600,0000 1200,0000
+  4    0      0    4 4:4:4:0           да 2600,0000 1200,0000
+  5    0      0    5 5:5:5:0           да 2600,0000 1200,0000
+  6    0      0    6 6:6:6:0           да 2600,0000 1200,0000
+  7    0      0    7 7:7:7:0           да 2600,0000 1200,0000
+  8    0      0    0 0:0:0:0           да 2600,0000 1200,0000
+  9    0      0    1 1:1:1:0           да 2600,0000 1200,0000
+ 10    0      0    2 2:2:2:0           да 2600,0000 1200,0000
+ 11    0      0    3 3:3:3:0           да 2600,0000 1200,0000
+ 12    0      0    4 4:4:4:0           да 2600,0000 1200,0000
+ 13    0      0    5 5:5:5:0           да 2600,0000 1200,0000
+ 14    0      0    6 6:6:6:0           да 2600,0000 1200,0000
+ 15    0      0    7 7:7:7:0           да 2600,0000 1200,0000
+
+▶  cat /proc/cpuinfo | grep 'model name' | head -n1
+model name	: Intel(R) Xeon(R) CPU E5-2689 0 @ 2.60GHz
+
+▶ sudo dmidecode -t 2 | grep "fact\|duct"
+	Manufacturer: Aliexpress TOP SUPER MOTHERBOARD
+	Product Name: X79
+        
+▶ lspci -nnk | grep VGA
+03:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP108 [GeForce GT 1030] [10de:1d01] (rev a1)
+04:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Ellesmere [Radeon RX 470/480/570/570X/580/580X/590] [1002:67df] (rev e7)
+
+▶ sudo dmidecode|grep "BIOS Information" -A6      
+BIOS Information
+	Vendor: American Megatrends Inc.
+	Version: 4.6.5
+	Release Date: 10/29/2019
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 4096 kB
+Invalid entry length (16). Fixed up to 11.

@@ -2,6 +2,8 @@
 
 *Below you may find English version.*
 
+Telegram community (RU): https://t.me/vfiolinux
+
 ### Данный репозиторий содержит примеры конфигураций виртуалок с проброшенными в них видеокартами и другим устройствами.
 
 Основные ресурсы:

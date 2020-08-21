@@ -1,0 +1,27 @@
+From 49fc13ba69fe5345d7228096a6400d482daa1c2d Mon Sep 17 00:00:00 2001
+From: Twilight Sparkle <twi.sparkl3@gmail.com>
+Date: Sun, 19 Apr 2020 11:10:08 +0300
+Subject: [PATCH] pci/quirks: apply `no_flr` to some AMD usb hosts
+
+This patch required to perform USB host passthrough.
+
+---
+ drivers/pci/quirks.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+index 29f473ebf..e59f830e1 100644
+--- a/drivers/pci/quirks.c
++++ b/drivers/pci/quirks.c
+@@ -5041,6 +5041,8 @@ static void quirk_intel_no_flr(struct pci_dev *dev)
+ }
+ DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1502, quirk_intel_no_flr);
+ DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1503, quirk_intel_no_flr);
++DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_AMD, 0x149c, quirk_intel_no_flr);
++DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_AMD, 0x1487, quirk_intel_no_flr);
+ 
+ static void quirk_no_ext_tags(struct pci_dev *pdev)
+ {
+-- 
+2.24.1
+

@@ -1,0 +1,3 @@
+Linux 5.15.10-arch1-1-voluntary #5 SMP Sun, 19 Dec 2021 19:04:39 +0000 x86_64 GNU/Linux
+QEMU emulator version 6.2.0
+libvirtd (libvirt) 7.10.0

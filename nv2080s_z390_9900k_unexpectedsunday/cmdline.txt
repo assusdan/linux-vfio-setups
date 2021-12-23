@@ -1,0 +1,1 @@
+intel_iommu=on iommu=pt default_hugepagesz=1G hugepagesz=1G hugepages=20 vfio-pci.ids=10de:1e81,10de:10f8,10de:1ad8,10de:1ad9,1106:3483,8086:a370 loglevel=3 quiet

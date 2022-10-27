@@ -1,0 +1,9 @@
+$ uname -a
+Linux archlinux 5.15.72-gentoo-dist #1 SMP Wed Oct 5 17:08:18 -00 2022 x86_64 Intel(R) Xeon(R) CPU E3-1220 V2 @ 3.10GHz GenuineIntel GNU/Linux
+
+$ qemu-system-x86_64 --version
+QEMU emulator version 7.0.0
+Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
+
+$ libvirtd --version
+libvirtd (libvirt) 8.7.0

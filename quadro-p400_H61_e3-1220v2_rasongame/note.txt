@@ -1,0 +1,7 @@
+I passthrough NVIDIA Quadro P400 on primary PCI-E x16 slot. My secondary slot has only x1 line.
+My UEFI doesnot support switch primary gpu in settings.
+In secondary slot AMD Radeon HD 6570 using by host Linux.
+I patched the vbios of the card so that it can work without CSM enabled. thx GOPupd.
+For mouse & keyboard i use wireless usb kit 
+
+

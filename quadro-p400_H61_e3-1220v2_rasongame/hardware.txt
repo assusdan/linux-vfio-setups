@@ -1,0 +1,49 @@
+$ lscpu -ae
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ    MINMHZ      MHZ
+  0    0      0    0 0:0:0:0          yes 3500,0000 1600,0000 3500.000
+  1    0      0    1 1:1:1:0          yes 3500,0000 1600,0000 2549.666
+  2    0      0    2 2:2:2:0          yes 3500,0000 1600,0000 2962.053
+  3    0      0    3 3:3:3:0          yes 3500,0000 1600,0000 3500.000
+
+$ cat /proc/cpuinfo | grep 'model name' | head -n1
+model name	: Intel(R) Xeon(R) CPU E3-1220 V2 @ 3.10GHz
+
+# dmidecode -t 2 | grep "fact\|duct"
+	Manufacturer: ASUSTeK COMPUTER INC.
+	Product Name: H61M-K
+
+$ lspci -nnk | grep VGA
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107GL [Quadro P400] [10de:1cb3] (rev a1)
+03:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Turks PRO [Radeon HD 6570/7570/8550 / R5 230] [1002:6759]
+
+# dmidecode|grep "BIOS Information" -A6
+BIOS Information
+	Vendor: American Megatrends Inc.
+	Version: 0801
+	Release Date: 07/21/2014
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 8 MB
+
+
+# dmidecode|grep "Base Board Information" -A2
+Base Board Information
+	Manufacturer: ASUSTeK COMPUTER INC.
+	Product Name: H61M-K
+
+$ dmesg | grep bandwidth
+[    0.170181] pci 0000:01:00.0: 32.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x16 link at 0000:00:01.0 (capable of 126.016 Gb/s with 8.0 GT/s PCIe x16 link)
+[    0.170734] pci 0000:03:00.0: 2.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x1 link at 0000:00:1c.4 (capable of 32.000 Gb/s with 2.5 GT/s PCIe x16 link)
+
+$ ~/groups.sh | grep VGA -3
+IOMMU Group 1:
+	00:01.0 PCI bridge [0604]: Intel Corporation Xeon E3-1200 v2/3rd Gen Core processor PCI Express Root Port [8086:0151] (rev 09)
+	01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107GL [Quadro P400] [10de:1cb3] (rev a1)
+	01:00.1 Audio device [0403]: NVIDIA Corporation GP107GL High Definition Audio Controller [10de:0fb9] (rev a1)
+--
+IOMMU Group 2:
+	00:16.0 Communication controller [0780]: Intel Corporation 6 Series/C200 Series Chipset Family MEI Controller #1 [8086:1c3a] (rev 04)
+--
+IOMMU Group 10:
+	03:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Turks PRO [Radeon HD 6570/7570/8550 / R5 230] [1002:6759]
+	03:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Turks HDMI Audio [Radeon HD 6500/6600 / 6700M Series] [1002:aa90]

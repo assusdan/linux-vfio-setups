@@ -1,0 +1,1 @@
+BOOT_IMAGE=/vmlinuz-5.15.72-gentoo-dist root=ROCKETMAN ro intel_iommu=on iommu=pt video=efifb:off vfio-pci.ids=10de:1cb3,10de:0fb9

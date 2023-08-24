@@ -1,0 +1,1 @@
+BOOT_IMAGE=/boot/vmlinuz-6.1.41-gentoo-dist root=UUID= ro amd_iommu=on iommut=pt mitigations=off amd_pstate=active

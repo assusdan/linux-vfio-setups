@@ -1,0 +1,9 @@
+> uname -a
+Linux archlinux 6.1.41-gentoo-dist #1 SMP PREEMPT_DYNAMIC Tue Jul 25 09:26:34 -00 2023 x86_64 AMD Ryzen 5 3600XT 6-Core Processor AuthenticAMD GNU/Linux
+[02:44:58] haruhi@archlinux /home/haruhi/Projects/linux-vfio-setups/quadro-p400_B450_rt-3600xt_rasongame
+> qemu-system-x86_64 --version
+QEMU emulator version 8.0.3
+Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
+[02:45:01] haruhi@archlinux /home/haruhi/Projects/linux-vfio-setups/quadro-p400_B450_rt-3600xt_rasongame
+> libvirtd --version
+libvirtd (libvirt) 9.4.0

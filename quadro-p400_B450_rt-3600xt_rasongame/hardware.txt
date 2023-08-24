@@ -1,0 +1,55 @@
+root@archlinux ~# lscpu -ae
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE    MAXMHZ    MINMHZ       MHZ
+  0    0      0    0 0:0:0:0           да 4634,9600 2200,0000 2199,6970
+  1    0      0    1 1:1:1:0           да 4634,9600 2200,0000 2215,3420
+  2    0      0    2 2:2:2:0           да 4634,9600 2200,0000 2120,2371
+  3    0      0    3 4:4:4:1           да 4634,9600 2200,0000 2123,7280
+  4    0      0    4 5:5:5:1           да 4634,9600 2200,0000 2200,0000
+  5    0      0    5 6:6:6:1           да 4634,9600 2200,0000 2889,0039
+  6    0      0    0 0:0:0:0           да 4634,9600 2200,0000 2071,8989
+  7    0      0    1 1:1:1:0           да 4634,9600 2200,0000 2527,9031
+  8    0      0    2 2:2:2:0           да 4634,9600 2200,0000 2195,4241
+  9    0      0    3 4:4:4:1           да 4634,9600 2200,0000 2194,6760
+ 10    0      0    4 5:5:5:1           да 4634,9600 2200,0000 2132,8601
+ 11    0      0    5 6:6:6:1           да 4634,9600 2200,0000 2211,1360
+root@archlinux ~# cat /proc/cpuinfo | grep 'model name' | head -n1
+model name	: AMD Ryzen 5 3600XT 6-Core Processor
+root@archlinux ~# dmidecode -t 2 | grep "fact\|duct"
+	Manufacturer: ASRock
+	Product Name: B450M-HDV R4.0
+root@archlinux ~# lspci -nnk | grep VGA
+08:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107GL [Quadro P400] [10de:1cb3] (rev a1)
+root@archlinux ~# dmidecode|grep "BIOS Information" -A6
+BIOS Information
+	Vendor: American Megatrends Inc.
+	Version: P4.90
+	Release Date: 03/03/2022
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 16 MB
+root@archlinux ~# dmidecode|grep "Base Board Information" -A2
+Base Board Information
+	Manufacturer: ASRock
+	Product Name: B450M-HDV R4.0
+root@archlinux ~# dmesg | grep bandwidth
+[    0.615231] pci 0000:08:00.0: 32.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x16 link at 0000:00:03.1 (capable of 126.016 Gb/s with 8.0 GT/s PCIe x16 link)
+root@archlinux ~# /home/haruhi/OSX-KVM/scripts/list_iommu_groups.sh | grep VGA -3
+	02:07.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] 400 Series Chipset PCIe Port [1022:43c7] (rev 01)
+	07:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller [10ec:8168] (rev 15)
+IOMMU Group 14:
+	08:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107GL [Quadro P400] [10de:1cb3] (rev a1)
+	08:00.1 Audio device [0403]: NVIDIA Corporation GP107GL High Definition Audio Controller [10de:0fb9] (rev a1)
+IOMMU Group 15:
+	09:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Starship/Matisse PCIe Dummy Function [1022:148a]
+root@archlinux ~# /home/haruhi/OSX-KVM/scripts/list_iommu_groups.sh | grep VGA -5
+	02:04.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] 400 Series Chipset PCIe Port [1022:43c7] (rev 01)
+	02:06.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] 400 Series Chipset PCIe Port [1022:43c7] (rev 01)
+	02:07.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] 400 Series Chipset PCIe Port [1022:43c7] (rev 01)
+	07:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller [10ec:8168] (rev 15)
+IOMMU Group 14:
+	08:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP107GL [Quadro P400] [10de:1cb3] (rev a1)
+	08:00.1 Audio device [0403]: NVIDIA Corporation GP107GL High Definition Audio Controller [10de:0fb9] (rev a1)
+IOMMU Group 15:
+	09:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Starship/Matisse PCIe Dummy Function [1022:148a]
+IOMMU Group 16:
+	0a:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Starship/Matisse Reserved SPP [1022:1485]

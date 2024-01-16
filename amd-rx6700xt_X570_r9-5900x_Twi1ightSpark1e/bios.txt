@@ -1,0 +1,7 @@
+Advanced tab
+`- CPU Configuration
+| `- SVM Mode = Enabled
+`- AMD CBS
+  `- NBIO Common Options
+    `- ACS Enable     = Enable
+    `- Enable AER Cap = Enable

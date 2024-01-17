@@ -1,0 +1,1 @@
+root=PARTUUID=<uuid> rw vfio_iommu_type1.allow_unsafe_interrupts=1 kvm-amd.nested=1 kvm-amd.avic=1 kvm-amd.npt=1

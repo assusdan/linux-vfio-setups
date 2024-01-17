@@ -1,0 +1,22 @@
+$ grep PRETTY_NAME /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+
+$ pveversion
+pve-manager/8.0.4/d258a813cfa6b390 (running kernel: 6.2.16-19-pve)
+
+$ qemu-system-x86_64 --version
+QEMU emulator version 8.0.2 (pve-qemu-kvm_8.0.2-7)
+Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
+
+$ libvirtd --version
+libvirtd (libvirt) 9.0.0
+
+$ grep -v "^#" /etc/libvirt/qemu.conf | grep -v "^\$"
+security_driver = "none"
+user = "root"
+group = "root"
+nvram = [
+   "/usr/share/pve-edk2-firmware/OVMF_CODE.fd:/usr/share/pve-edk2-firmware/OVMF_VARS.fd",
+   "/usr/share/pve-edk2-firmware/OVMF_CODE.secboot.fd:/usr/share/pve-edk2-firmware/OVMF_VARS.fd",
+]
+
